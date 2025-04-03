@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Add Player</title>
+</head>
+<body>
+
+<h2>Add New Player</h2>
+
+<form th:action="@{/save}" th:object="${player}" method="post">
+  <label>First Name:</label>
+  <input type="text" th:field="*{firstname}" required /><br>
+
+  <label>Last Name:</label>
+  <input type="text" th:field="*{lastname}" required /><br>
+
+  <label>Age:</label>
+  <input type="number" th:field="*{age}" required /><br>
+
+  <label>Position:</label>
+  <select th:field="*{position}">
+    <option th:each="pos : ${positions}" th:value="${pos}" th:text="${pos}"></option>
+  </select><br>
+
+  <button type="submit">Save Player</button>
+</form>
+
+</body>
+</html>
