@@ -1,0 +1,116 @@
+/* Already existing styles above... */
+body {
+    background: url('https://media.istockphoto.com/id/1502846052/photo/textured-soccer-game-field-with-neon-fog-center-midfield.jpg?s=612x612&w=0&k=20&c=LPSo6ps1NfZ_xviL0tmhnnrcLjjFXAQhsYr3qAOfviY=') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: white;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background-color: rgba(0, 0, 0, 0.7);
+    border: 2px solid #00ff00;
+    border-radius: 15px;
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #00ff00;
+}
+
+.card h3 {
+    color: #00ff00;
+    margin-bottom: 5px;
+}
+
+.card p {
+    margin: 4px 0;
+}
+
+/* New: Stylish Buttons */
+.add-button,
+.submit-button {
+    background-color: #00ff00;
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.add-button:hover,
+.submit-button:hover {
+    background-color: #00cc00;
+}
+
+.submit-button {
+    background-color: #00ff00;
+    color: black;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.submit-button:hover {
+    background-color: #00cc00;
+    transform: scale(1.03);
+    box-shadow: 0 0 10px #00ff00;
+}
+
+/* New: Stylish Form Fields */
+.form-container {
+    background-color: rgba(0, 0, 0, 0.8);
+    max-width: 400px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 15px;
+    border: 2px solid #00ff00;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #00ff00;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 8px 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #00ff00;
+    border-radius: 8px;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    box-shadow: 0 0 5px #00ff00;
+}

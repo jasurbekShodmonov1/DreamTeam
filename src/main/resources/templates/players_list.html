@@ -2,30 +2,36 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Players List</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
 
-<h2>All Players</h2>
-<a href="new">Add New Player</a>
+<h2 style="text-align: center; color: #00ff00;">All Players</h2>
 
-<table border="1">
-  <thead>
-  <tr>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>Age</th>
-    <th>Position</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="player : ${players}">
-    <td th:text="${player.firstname}"></td>
-    <td th:text="${player.lastname}"></td>
-    <td th:text="${player.age}"></td>
-    <td th:text="${player.position}"></td>
-  </tr>
-  </tbody>
-</table>
+<div style="text-align: center; margin-bottom: 20px;">
+  <a href="/new" class="add-button">+ Add New Player</a>
+</div>
+
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Position</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="player : ${players}">
+      <td th:text="${player.firstname}">John</td>
+      <td th:text="${player.lastname}">Doe</td>
+      <td th:text="${player.age}">24</td>
+      <td th:text="${player.position}">Goalkeeper</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
 
 </body>
 </html>

@@ -28,7 +28,7 @@ public class PlayerController {
     @GetMapping("/new")
     public String showPlayerForm(Model model) {
         model.addAttribute("player", new PlayerModel());
-        model.addAttribute("positions", Position.values()); // Pass enum values
+        model.addAttribute("positions", Position.values());
         return "player_form";
     }
 

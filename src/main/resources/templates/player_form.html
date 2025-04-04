@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Add Player</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
 
@@ -22,7 +23,7 @@
     <option th:each="pos : ${positions}" th:value="${pos}" th:text="${pos}"></option>
   </select><br>
 
-  <button type="submit">Save Player</button>
+  <button type="submit" class="submit-button">⚽ Save Player</button>
 </form>
 
 </body>
