@@ -52,6 +52,8 @@ body {
     transition: background 0.3s ease;
 }
 
+
+
 .add-button:hover,
 .submit-button:hover {
     background-color: #00cc00;
@@ -77,6 +79,7 @@ body {
     transform: scale(1.03);
     box-shadow: 0 0 10px #00ff00;
 }
+
 
 /* New: Stylish Form Fields */
 .form-container {

@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class PlayerModel {
 
+    private Long id;
+
     private String firstname;
     private String lastname;
     private Integer age;
