@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Player</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #00ff00;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+        }
+
+        .submit-button {
+            background-color: #28a745;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #218838;
+        }
+
+        .back-button {
+            display: inline-block;
+            text-decoration: none;
+            padding: 8px 16px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Back to players list -->
+<a href="/home" class="back-button">← Back to Players</a>
+
+<h2>Edit Player</h2>
+
+<div class="form-container">
+    <!-- Form for updating player details -->
+    <form th:action="@{'/update/' + ${player.id}}" th:object="${player}" method="post">
+
+        <label>First Name:</label>
+        <input type="text" th:field="*{firstname}" placeholder="e.g. Lionel" required />
+
+        <label>Last Name:</label>
+        <input type="text" th:field="*{lastname}" placeholder="e.g. Messi" required />
+
+        <label>Age:</label>
+        <input type="number" th:field="*{age}" min="1" required />
+
+        <label>Position:</label>
+        <select th:field="*{position}" required>
+            <option th:each="pos : ${positions}" th:value="${pos}" th:text="${pos}" th:selected="${pos} == ${player.position}"></option>
+        </select>
+
+        <button type="submit" class="submit-button">⚽ Update Player</button>
+    </form>
+</div>
+
+</body>
+</html>
