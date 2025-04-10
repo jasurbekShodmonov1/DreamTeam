@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Collection;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -31,4 +33,16 @@ public class UserEntity {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<RoleEntity> roles = new HashSet<>();
+
+    public void addRole(RoleEntity role){
+        this.roles.add(role);
+    }
+
+    public void addRoles(Collection<RoleEntity> roles) {
+        this.roles.addAll(roles);
+    }
+
+    public void removeRole(RoleEntity role){
+        this.roles.remove(role);
+    }
 }

@@ -25,7 +25,7 @@ public class PlayerController {
     public String getAllPlayers(Model model) {
         List<PlayerEntity> players = playerService.getAllEntities();
         model.addAttribute("players",players);
-        return "players_list";
+        return "players/players_list";
     }
 
     @GetMapping("/new")
@@ -34,7 +34,7 @@ public class PlayerController {
         model.addAttribute("player", new PlayerModel());
 
         model.addAttribute("positions", Position.values());
-        return "player_form";
+        return "players/player_form";
     }
 
     @PostMapping("/save")
@@ -52,7 +52,7 @@ public class PlayerController {
     public String showEditForm(@PathVariable Long id, Model model) {
         model.addAttribute("player", playerService.getPlayerById(id));
         model.addAttribute("positions", Position.values());
-        return "update_form";
+        return "players/update_form";
     }
 
     @PostMapping("/update/{id}")
