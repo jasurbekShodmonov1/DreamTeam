@@ -9,6 +9,8 @@ public interface UserService {
 
     List<UserEntity> getAllUsers();
     UserEntity createUser(UserModel userModel);
-    void update(Long id, UserModel model);
+    UserModel getUserById(Long id);
 
+    void update(Long id, UserModel model);
+    void delete(Long id);
 }

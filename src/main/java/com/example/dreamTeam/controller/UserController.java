@@ -2,6 +2,7 @@ package com.example.dreamTeam.controller;
 
 import com.example.dreamTeam.entity.RoleEntity;
 import com.example.dreamTeam.entity.UserEntity;
+import com.example.dreamTeam.model.PlayerModel;
 import com.example.dreamTeam.model.UserModel;
 import com.example.dreamTeam.repository.RoleRepository;
 import com.example.dreamTeam.repository.UserRepository;
@@ -52,5 +53,26 @@ public class UserController {
         return "redirect:/users";
     }
 
+    @GetMapping("/update/{id}")
+    public String update(@PathVariable Long id, Model model){
+        model.addAttribute("user", userService.getUserById(id));
+        List<RoleEntity> roles = roleRepository.findAll();
+        model.addAttribute("roles", roles);
+        return "users/user_update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateUser(@ModelAttribute UserModel userModel, @PathVariable Long id, Model model){
+
+        userService.update(id, userModel);
+        model.addAttribute("success", "User updated successfully!");
+        return "redirect:/users";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String delete(@PathVariable Long id){
+        userService.delete(id);
+        return "redirect:/users";
+    }
 
 }

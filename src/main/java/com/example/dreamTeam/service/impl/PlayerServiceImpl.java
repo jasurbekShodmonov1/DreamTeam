@@ -17,7 +17,6 @@ public class PlayerServiceImpl implements PlayerService {
 
     private final PlayerRepository playerRepository;
 
-
     @Override
     public List<PlayerEntity> getAllEntities() {
         return playerRepository.findAll();  // Retrieves all PlayerEntity records from the database

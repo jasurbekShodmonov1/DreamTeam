@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Update User</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f7fc;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 8px;
+      display: block;
+      color: #000; /* Black text color */
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 14px;
+      background-color: #f9f9f9;
+      color: #000; /* Black text color */
+    }
+
+    select {
+      cursor: pointer;
+    }
+
+    button[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 12px;
+      width: 100%;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .success-message {
+      text-align: center;
+      color: green;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .form-footer {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Update User</h1>
+
+  <form th:action="@{'/users/update/' + ${user.id}}" th:object="${user}" method="post">
+    <input type="hidden" th:field="*{id}" />
+
+    <label for="username">Username:</label>
+    <input type="text" id="username" th:field="*{username}" required /><br><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" th:field="*{password}" /><br><br>
+
+    <label for="roles">Select Roles:</label><br>
+    <select th:field="*{roles}" multiple id="roles">
+      <option th:each="role : ${roles}"
+              th:value="${role.name}"
+              th:text="${role.name}"
+              th:selected="${user.roles.contains(role.name)}"></option>
+    </select>
+
+    <br><br>
+    <button type="submit">Update User</button>
+  </form>
+
+  <div th:if="${success}" class="success-message">
+    <p th:text="${success}"></p>
+  </div>
+
+  <div class="form-footer">
+    <a href="/users">Back to Users List</a>
+  </div>
+</div>
+
+</body>
+</html>
