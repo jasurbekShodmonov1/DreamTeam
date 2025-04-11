@@ -17,17 +17,7 @@ public class UserMapper {
 
 
 
-//    public static UserModel toUserModel(UserEntity userEntity){
-//        var userModel=new UserModel();
-//        userModel.setUsername(userEntity.getUsername());
-//        userModel.setPassword(userEntity.getPassword());
-//        List<Long> roleIds = userEntity.getRoles().stream()
-//                .map(RoleEntity::getId)
-//                .collect(Collectors.toList());
-//
-//        userModel.setRoles(roleIds);
-//        return userModel;
-//    }
+
 
     public static Set<RoleEntity> changeRole(UserModel model, RoleRepository roleRepository ){
         Set<RoleEntity> roles = new HashSet<>();
