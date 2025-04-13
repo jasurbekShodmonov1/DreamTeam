@@ -8,10 +8,7 @@ import com.example.dreamTeam.service.impl.RoleServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -38,6 +35,12 @@ public class RoleController {
     @PostMapping("/create")
     public String createRoles(@RequestParam String name){
         roleService.createRole(name);
+        return "redirect:/roles";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteRoles(@PathVariable Long id){
+        roleService.delete(id);
         return "redirect:/roles";
     }
 }

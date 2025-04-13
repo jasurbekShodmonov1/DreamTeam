@@ -1,5 +1,6 @@
 package com.example.dreamTeam.service.impl;
 
+import com.example.dreamTeam.entity.PlayerEntity;
 import com.example.dreamTeam.entity.RoleEntity;
 import com.example.dreamTeam.model.RoleModel;
 import com.example.dreamTeam.repository.RoleRepository;
@@ -37,5 +38,15 @@ public class RoleServiceImpl  implements RoleService {
             roleEntity.setName(roleName);
             roleRepository.save(roleEntity);
 
+    }
+
+    public RoleModel getById(Long id){
+        RoleEntity role=roleRepository.findById(id).orElseThrow();
+        return new RoleModel(role.getId(), role.getName());
+    }
+
+
+    public void delete(Long id){
+        roleRepository.deleteById(id);
     }
 }
