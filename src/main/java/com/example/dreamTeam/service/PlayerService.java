@@ -14,6 +14,4 @@ public interface PlayerService {
     void update(Long id, PlayerModel model);
     void delete(Long id);
 
-
-//    void update(PlayerModel model);
 }

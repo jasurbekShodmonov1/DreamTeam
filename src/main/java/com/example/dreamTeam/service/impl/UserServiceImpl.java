@@ -6,17 +6,17 @@ import com.example.dreamTeam.model.UserModel;
 import com.example.dreamTeam.repository.RoleRepository;
 import com.example.dreamTeam.repository.UserRepository;
 import com.example.dreamTeam.service.UserService;
-import com.example.dreamTeam.util.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Service
 public class UserServiceImpl implements UserService {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -74,9 +74,6 @@ public class UserServiceImpl implements UserService {
     public void delete(Long id){
         userRepository.deleteById(id);
     }
-
-
-
 
 
 }
