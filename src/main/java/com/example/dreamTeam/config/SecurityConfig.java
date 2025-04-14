@@ -41,6 +41,7 @@ public class SecurityConfig {
                         .requestMatchers("/users/**").hasAnyAuthority("ADMIN")
                         .requestMatchers("/roles/**").hasAnyAuthority("ADMIN")
 //                        .requestMatchers("//**").hasAuthority("ADMIN")
+                        .requestMatchers("/api/users/v1/**").permitAll()
                         .anyRequest().authenticated()
                 )
                 .formLogin(login -> login.permitAll().successHandler(successHandler))

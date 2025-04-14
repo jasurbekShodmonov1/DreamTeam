@@ -2,6 +2,8 @@ package com.example.dreamTeam.service.impl;
 
 import com.example.dreamTeam.entity.RoleEntity;
 import com.example.dreamTeam.entity.UserEntity;
+import com.example.dreamTeam.exception.NotFoundException;
+import com.example.dreamTeam.model.UserDto;
 import com.example.dreamTeam.model.UserModel;
 import com.example.dreamTeam.repository.RoleRepository;
 import com.example.dreamTeam.repository.UserRepository;
@@ -28,6 +30,22 @@ public class UserServiceImpl implements UserService {
 
     public List<UserEntity> getAllUsers() {
         return userRepository.findAll();  // Return all users
+    }
+
+    @Override
+    public List<UserDto> getUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(userEntity -> new UserDto(userEntity.getId(),userEntity.getUsername()))
+                .toList();
+    }
+
+    @Override
+    public UserDto getUser(Long id) {
+        var userEntity = userRepository.findById(id).orElseThrow(() -> {
+            return new NotFoundException("user not found");
+        });
+        return new UserDto(userEntity.getId(),userEntity.getUsername());
     }
 
     public UserEntity createUser(UserModel userModel) {
